@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="icon" type="image/png" href="./favicon/favicon.ico" sizes="32x32">
+    <title>DB Digital | Grid Layout</title>
+
+  </head>
+  <body>
+
+    <div class="main" id="top">
+
+      <div class="burger-menu">
+      <nav class="navbar">
+        <div class="logo-nav">
+          <a href="index.html">
+            <img src="./img/db_light.webp" alt="">
+          </a>
+
+        </div>
+          <h3 class="nav-title">DB Digital Lessons</h3>
+          <a class="nav-title" href="./css_index.html">
+            <h3>Lesson Index</h3>
+          </a>
+          
+          <div class="burg">
+            <a href="javascript:void(0);" onclick="myFunction2()">
+              <i class="fa-solid fa-bars"></i></a>
+          </div>
+      </nav>
+      <div class="sidebar">
+        <h3>CSS Lessons</h3>
+        <ul>
+          <li><a href="./lesson_flexbox.html">Flex</a></li>
+          <li><a href="./lesson_grid.html">Grid</a></li>
+          <li><a href="">Positioning</a></li>
+        </ul>
+        <h4>JavaScript Lessons</h4>
+        <ul>
+          <li><a href="./javascript.html">DOM Traversal</a></li>
+          <li><a href="./js_classlist.html">The classList</a></li>
+        </ul>
+        <a href="./index.html">
+
+          <span><i class="fa-solid fa-circle-chevron-left"></i> back to Home</span>
+        </a>
+          
+      </div>
+      </div>
+      <div class="content">
+        <div class="title">
+          <h1>The CSS Position</h1>
+          <span class="date" id='date-time'></span>
+
+          <button class="btn-category">CSS</button>
+        </div>
+        <div class="social">
+
+          <span class="fa-stack">
+            <i class="fa fa-circle fa-stack-2x fb-bg"></i>
+            <i class="fa-brands fa-facebook-f fa-stack-1x"></i>
+          </span>
+          <span class="fa-stack">
+            <i class="fa fa-circle fa-stack-2x twit-bg"></i>
+            <i class="fa-brands fa-twitter fa-stack-1x"></i>
+          </span>
+          <span class="fa-stack">
+            <i class="fa fa-circle fa-stack-2x instagram-bg"></i>
+            <i class="fa-brands fa-instagram fa-stack-1x"></i>
+          </span>
+          <span class="fa-stack">
+            <i class="fa fa-circle fa-stack-2x mail-bg"></i>
+            <i class="fa-solid fa-envelope fa-stack-1x"></i>
+          </span>
+
+        </div>
+        <div class="text">
+          <p>
+            To set up our example, let's add the codes below.
+          </p>
+
+
+          
+<pre>
+<code>
+&#60;div class="parent"&#62;
+  Parent
+  &#60;div class="child-1 child"&#62;One&#60;/div&#62;
+  &#60;div class="child-2 child"&#62;Two&#60;/div&#62;
+  &#60;div class="child-3 child"&#62;Three&#60;/div&#62;
+&#60;/div&#62;
+</code>
+</pre>
+
+<pre>
+<code>
+.parent {
+  background-color: lightblue;
+  padding: 10px;
+}
+.child-1 {
+  background-color: lightgreen;
+}
+
+.child-2 {
+  background-color: orange;
+}
+
+.child-3 {
+  background-color: lightpink;
+}
+</code>
+</pre>
+       
+
+        <div class="parentx">
+        Parent
+          <div class="child-1 childx">One</div>
+          <div class="child-2 childx">Two</div>
+          <div class="child-3 childx">Three</div>
+        </div>
+        <div class="text">
+          <span class="subtitle">Static Positioning</span>
+          <p>
+            If you inspect from the developer tools, static is the default position for all the elements. Static essentially means that the elements will follow according to how they were structured in the html file. For example, child one is under the parent and child two follows child one.
+          </p>
+          <span class="subtitle">Relative Positioning</span>
+
+
+          <p>The Relative position works almost exactly the same as the static position. If you change the position of the first child to relative, nothing will happen but this will allow you to change the top, left, right and bottom of the first child element.</p>
+
+          <p>Now, let's see what happens if we changed the second child to relative position and give it a left value of 10px.</p>
+
+          <div class="parentx">
+          Parent
+            <div class="child-1x childx">One</div>
+            <div class="child-2 childx">Two</div>
+            <div class="child-3 childx">Three</div>
+          </div>
+
+
+
+        <p>
+          We can see that child one adjusted it's 10 pixels to the left and even overflows the parent by 10px to the left as well. That is because relative will allow you to position the element from where it would normally be positioned. If we added the top value of 10 pixels:
+        </p>
+
+        <div class="parentx">
+          Parent
+            <div class="child-1y childx">One</div>
+            <div class="child-2 childx">Two</div>
+            <div class="child-3 childx">Three</div>
+          </div>
+
+
+        <p>We can see that the first child overflows the second child. What is happening here is that the first child was removed from the static flow (although since some parts are still occupied by the first child, the second child cannot occupy it yet) where the elements would push the other elements if the positions where changed. In general, relative position is not used for top, left, right, and bottom positioning.</p>
+
+        <span class="subtitle">The Absolute Position</span>
+
+        <p>If we changed the first child position to absolute without any other changes from our first diagram:</p>
+
+<pre>
+<code>
+.parent {
+  background-color: lightblue;
+  padding: 10px;
+}
+.child-1 {
+  background-color: lightgreen;
+  position: absolute;
+}
+
+.child-2 {
+  background-color: orange;
+}
+
+.child-3 {
+  background-color: lightpink;
+}
+</code>
+</pre>
+
+        <div class="parentx">
+          Parent
+            <div class="child-1z childx">One</div>
+            <div class="child-2 childx">Two</div>
+            <div class="child-3 childx">Three</div>
+          </div>
+
+        <p>We can see that the second child is behind the first child and taken its place but also the first child occupies only the width of the text (the inner text inside the div). The first child is completely out of the static flow.</p>
+
+        <p>Position absolute allows you to position the element relative to the body of the document which in this case is the top-left corner of the screen. If we give the first child the value of position absolute and top value of 10 pixels:</p>
+
+<pre>
+<code>
+.parent {
+  background-color: lightblue;
+  padding: 10px;
+}
+.child-1 {
+  background-color: lightgreen;
+  position: absolute;
+  top: 3600px;
+}
+
+.child-2 {
+  background-color: orange;
+}
+
+.child-3 {
+  background-color: lightpink;
+}
+</code>
+</pre>
+
+        <div class="parentx">
+          Parent
+            <div class="child-1a childx">One</div>
+            <div class="child-2 childx">Two</div>
+            <div class="child-3 childx">Three</div>
+        </div>
+
+
+<p>You can see that the first child is just a few pixels above the diagram but actually is 3600 pixels from the top of the screen.</p>
+
+      <p>If we use position relative to the parent div:</p>
+
+<pre>
+<code>
+.parent {
+  background-color: lightblue;
+  position: relative;
+  padding: 10px;
+}
+.child-1 {
+  background-color: lightgreen;
+  position: absolute;
+  top: 30px;
+}
+
+.child-2 {
+  background-color: orange;
+}
+
+.child-3 {
+  background-color: lightpink;
+}
+</code>
+</pre>
+
+
+      <div class="parenty">
+        Parent
+          <div class="child-1b childx">One</div>
+          <div class="child-2 childx">Two</div>
+          <div class="child-3 childx">Three</div>
+        </div>
+
+
+
+      <p>We can see that the absolutely positioned element is looking for a relatively positioned element to align with and if it doesn't find one, it will position itself to the very top of the screen. We can also observe that the absolute positioning will follow the padding of the relatively positioned parent if followed.</p>
+
+
+    </div>
+      <footer>
+        <span>&#xA9; 2022 DB Digital. All rights reserved.</span>
+
+        <a href="#top">
+          <span><i class="fa-solid fa-angles-up"></i> back to top</span>
+        </a>
+
+      </footer>      
+
+    </div>
+<script src="./js/css.js"></script>
+
+  </body>
+</html>

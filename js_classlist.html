@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="icon" type="image/png" href="./favicon/favicon.ico" sizes="32x32">
+    <title>DB Digital | JavaScript - classList</title>
+<script src="./js/lesson.js" defer></script>
+
+  </head>
+  <body>
+
+    <div class="main" id="top">
+
+      <div class="burger-menu">
+      <nav class="navbar">
+        <div class="logo-nav">
+          <a href="index.html">
+            <img src="./img/db_light.webp" alt="">
+          </a>
+
+        </div>
+          <h3 class="nav-title">DB Digital Lessons</h3>
+          <a class="nav-title" href="index.html">
+            <h3>Lesson Index</h3>
+          </a>
+          
+          <div class="burg">
+            <a href="javascript:void(0);" onclick="myFunction2()">
+              <i class="fa-solid fa-bars"></i></a>
+          </div>
+      </nav>
+      <div class="sidebar">
+        <h3>CSS Lessons</h3>
+        <ul>
+          <li><a href="./lesson_flexbox.html">Flex</a></li>
+          <li><a href="./lesson_grid.html">Grid</a></li>
+          <li><a href="">Positioning</a></li>
+        </ul>
+        <h4>JavaScript Lessons</h4>
+        <ul>
+          <li><a href="./javascript.html">DOM Traversal</a></li>
+          <li><a href="./lesson_grid.html">Using classList</a></li>
+        </ul>
+        <a href="./index.html">
+
+          <span><i class="fa-solid fa-circle-chevron-left"></i> back to Home</span>
+        </a>
+          
+      </div>
+      </div>
+      <div class="content">
+        <div class="title">
+          <h1>The Basics of classList</h1>
+          <span class="date" id='date-time'></span>
+
+          <button class="btn-category">JS</button>
+        </div>
+        <div class="social">
+
+          <span class="fa-stack">
+            <i class="fa fa-circle fa-stack-2x fb-bg"></i>
+            <i class="fa-brands fa-facebook-f fa-stack-1x"></i>
+          </span>
+          <span class="fa-stack">
+            <i class="fa fa-circle fa-stack-2x twit-bg"></i>
+            <i class="fa-brands fa-twitter fa-stack-1x"></i>
+          </span>
+          <span class="fa-stack">
+            <i class="fa fa-circle fa-stack-2x instagram-bg"></i>
+            <i class="fa-brands fa-instagram fa-stack-1x"></i>
+          </span>
+          <span class="fa-stack">
+            <i class="fa fa-circle fa-stack-2x mail-bg"></i>
+            <i class="fa-solid fa-envelope fa-stack-1x"></i>
+          </span>
+
+        </div>
+        <div class="text">
+          <p>
+             <span class="text-span">classList</span> is one of the most commonly used DOM property in JavaScript. One might think that classList is as simple as an add and remove method, but there is so much more to classList. In this article we will explore this add and remove method and more.
+          </p>
+
+
+          <span class="subtitle">The Basics</span>
+          <p>
+            When you access the classList of an element, you can use the add method to add a class and the remove method to remove a class. This is pretty straight forward, but most people don't know that you can pass as many classes as you want to these methods and they will add/remove them all. You can also access the string of all classes by using the value property. Check the code below in the developer tools to see the result. The following code is a format for doing this.
+          </p>
+        </div>
+<pre>
+<code>
+element.classList.add('new-class', 'another-class')
+console.log(element.classList.value)
+// new-class another-class
+
+element.classList.remove('another-class')
+console.log(element.classList.value)
+// new-class
+</code>
+</pre>
+
+        <div class="text">
+          <span class="subtitle">Contains</span>
+          <p>
+            You also need to check if an element has a specific class in JavaScript in order to perform a certain operation. This is luckily very easy to do with classList. You just call the <span class="text-span">contains</span> method and pass the name of the class you want to check. This method will return true if the element has that class and false if it doesn't. You may open the developer tools console and paste the code below to check. (note: I added a div with a class of example)
+          </p>
+
+<pre>
+<code>
+//run this code first first
+example = document.querySelector(".example");
+console.log
+(example.classList.contains('new-class'))
+// false
+
+//run next
+example.classList.add('new-class')
+console.log
+(example.classList.contains('new-class'))
+// true
+</code>
+</pre>
+
+<div class="example"></div>
+
+
+<span class="subtitle">Toggle</span>
+        <p>
+          My favorite method of classList is the toggle method. This method lets you toggle a class on/off depending on if the class is already on the element.
+        </p>
+
+
+        <p>We can also use element selection by class name using <span class="text-span">getElementsByClassName</span>. In our example, let's select the parents using this method.</p>
+
+<pre>
+<code>
+element.classList.toggle('new-class')
+</code>
+</pre>
+  
+
+        <p>The above is the same as the below.</p>
+
+
+<pre>
+<code>
+if (element.classList.contains('new-class')) {
+  element.classList.remove('new-class')
+} else {
+  element.classList.add('new-class')
+}
+</code>
+</pre>
+
+
+<p>This is not the only use of toggle, though. Sometimes you need to toggle a class based on a boolean value. For example if the boolean win is true then you want to add the win class to an element otherwise if win is false you want to remove the win class. Doing so is as simple as the below.</p>
+
+<pre>
+<code>
+if (win) {
+  element.classList.add('win')
+} else {
+  element.classList.remove('win')
+}
+</code>
+</pre>
+
+
+<div style="display: none;" class="grandparent for-dom" id="grandpa-id2">
+  <div class="grandparent1 for-dom" id="grandpa-id"></div>
+    <div class="parent2 for-dom">
+    </div>
+    <div class="parent for-dom">
+  </div>
+</div>
+
+      </div>
+      <footer>
+        <span>&#xA9; 2022 DB Digital. All rights reserved.</span>
+
+        <a href="#top">
+          <span><i class="fa-solid fa-angles-up"></i> back to top</span>
+        </a>
+
+
+
+      </footer>
+    </div>
+  </body>
+</html>

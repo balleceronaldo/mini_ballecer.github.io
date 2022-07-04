@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="icon" type="image/png" href="./favicon/favicon.ico" sizes="32x32">
+    <title>DB Digital | Flexbox Lesson</title>
+  </head>
+  <body>
+
+    <div class="main" id="top">
+
+      <div class="burger-menu">
+      <nav class="navbar">
+        <div class="logo-nav">
+          <a href="index.html">
+            <img src="./img/db_light.webp" alt="">
+          </a>
+
+        </div>
+          <h3 class="nav-title">DB Digital Lessons</h3>
+          <a class="nav-title" href="index.html">
+            <h3>Lesson Index</h3>
+          </a>
+          
+          <div class="burg">
+            <a href="javascript:void(0);" onclick="myFunction2()">
+              <i class="fa-solid fa-bars"></i></a>
+          </div>
+      </nav>
+      <div class="sidebar">
+        <h3>CSS Lessons</h3>
+        <ul>
+          <li><a href="./lesson_flexbox.html">Flex</a></li>
+          <li><a href="./lesson_grid.html">Grid</a></li>
+          <li><a href="./lesson_position.html">Positioning</a></li>
+        </ul>
+        <h4>JavaScript Lessons</h4>
+        <ul>
+          <li><a href="./javascript.html">DOM Traversal</a></li>
+          <li><a href="./js_classlist.html">The classList</a></li>
+        </ul>
+        <a href="./index.html">
+
+          <span><i class="fa-solid fa-circle-chevron-left"></i> back to Home</span>
+        </a>
+          
+      </div>
+      </div>
+      <div class="content">
+        <div class="title">
+          <h1>The CSS Flexbox</h1>
+          <span class="date" id='date-time'></span>
+
+          <button class="btn-category">CSS</button>
+        </div>
+        <div class="social">
+
+          <span class="fa-stack">
+            <i class="fa fa-circle fa-stack-2x fb-bg"></i>
+            <i class="fa-brands fa-facebook-f fa-stack-1x"></i>
+          </span>
+          <span class="fa-stack">
+            <i class="fa fa-circle fa-stack-2x twit-bg"></i>
+            <i class="fa-brands fa-twitter fa-stack-1x"></i>
+          </span>
+          <span class="fa-stack">
+            <i class="fa fa-circle fa-stack-2x instagram-bg"></i>
+            <i class="fa-brands fa-instagram fa-stack-1x"></i>
+          </span>
+          <span class="fa-stack">
+            <i class="fa fa-circle fa-stack-2x mail-bg"></i>
+            <i class="fa-solid fa-envelope fa-stack-1x"></i>
+          </span>
+
+        </div>
+        <div class="text">
+          <p>
+            With the default CSS Block model, you assign dimensions (like width and height) whether it is fixed  (using px, rem, etc.) or percentage, and then use float to arrange items on the page. And this was not easy to do. You have to factor in the margins and the paddings and how much width you will have. But then, Flexbox was created.
+          </p>
+
+          <span class="subtitle">So What Is Flexbox?</span>
+          <p>
+            The Flexbox (also called the Flexible Box Model) is a CSS model that provides an easy and clean way to align items within a container. Flexbox is a one-dimensional layout method for arranging items in rows or columns. Flex items (or children) flex (or expand) to fill additional space or shrink to fit into smaller spaces. Flexbox is responsive and mobile friendly. Positioning Child elements is easy. The order of elements can be changed without editing the HTML. In order to implement Flexbox, if we have an element (like a div) with children, all we need to do is to set the <span class="text-span">display</span> property to <span class="text-span">flex</span>. 
+          </p>
+        </div>
+<pre>
+<code>
+&#60;div class="container"&#62;
+  &#60;div class="item-1"&#62;1&#60;/div&#62;
+  &#60;div class="item-2"&#62;2&#60;/div&#62;
+  &#60;div class="item-3"&#62;3&#60;/div&#62;
+&#60;/div&#62;
+</code>
+</pre>
+
+<pre>
+<code>
+.container {
+  display: flex;
+}
+</code>
+</pre>
+       
+
+        <div class="diagram-box">
+          <div class="flex-diagrams">
+            <div class="flex-item">1</div>
+            <div class="flex-item">2</div>
+            <div class="flex-item">3</div>
+          </div>
+        </div>
+        <div class="text">
+          <p>
+            In the above code and illustration, the boxes were also given a height and a width of 100 pixels. We can see that by setting the display as flex on an element, we are setting that element (the div item with dashed border) as a <span class="colored-text">flex container</span>. All the direct children inside that div element then become flex items. By default, if you specify no other properties, the flex items will line up in a row from left to right and will take up only as much space as they need, or in this case based on the given width. Items will also automatically shrink down to fit within the flex container if they would normally overflow.
+          </p>
+          <p>Also, take note that the numbers <span class="colored-text">1, 2, and, 3</span> are centered inside the blue boxes because the the children boxes were also given a diplay property of flex.</p>
+
+          <span class="subtitle">Flexbox Layout</span>
+          <p>
+            Flexbox was the first CSS layout method that worked in a completely different way than normal CSS. Instead of worrying about block/inline elements, the flexbox model worries about a main axis (the dark blue horizontal line below) and a cross axis (orange vertical line). 
+          </p>
+
+        <div class="diagram-box">
+          <div class="flex-diagrams-2">
+
+            <div class="diagram-div ma">
+            <div class="flex-item-2 ma1">Main Axis</div>
+            <div class="flex-item-2 ma2"></div>
+            </div>
+
+            <div class="diagram-div ca">
+              <div class="flex-item-2 ca1">Cross Axis</div>
+            <div class="flex-item-2 ca2"></div>
+          </div>
+            
+          </div>
+        </div>
+        <p>
+          By default the main axis (shown in dark blue) goes horizontally across the container and the cross axis goes vertically. This means that any layout method that deals with the main axis will layout elements horizontally while the cross axis will layout elements vertically. Let's look at how we can layout elements along the main axis first. 
+        </p>
+
+        <span class="subtitle"><span class="h1-span">justify-content</span></span>
+        <p>For all these examples we will assume that the flex-items have a width of 20%.</p>
+<pre>
+<code>
+.flex-container {
+display: flex;
+}
+</code>
+</pre>
+
+<span class="subtitle"><span class="h1-span">flex-start</span> (default)</span>
+<p>If you don't set the <span class="text-span">justify-content</span>, the default value will be flex-start. It will place all the items at the "start" of the main axis. The <span class="colored-text">start</span> is at the left side of the main axis by default. As you can see below:</p>
+
+
+<div class="diagram-box">
+  <div class="flex-diagrams">
+    <div class="flex-item">1</div>
+    <div class="flex-item">2</div>
+    <div class="flex-item">3</div>
+  </div>
+</div>
+
+<pre>
+<code>
+.flex-container {
+  display: flex;
+  justify-content: flex-start;
+}
+</code>
+</pre>
+
+<span class="subtitle"><span class="h1-span">flex-end</span></span>
+
+<p>Flex-end places all items at the end of the main axis which is the right of the axis by default.</p>
+
+<pre>
+<code>
+.flex-container {
+  display: flex;
+  justify-content: flex-end;
+}
+</code>
+</pre>
+  <div class="diagram-box">
+    <div style="justify-content:flex-end;" class="flex-diagrams">
+      <div class="flex-item">1</div>
+      <div class="flex-item">2</div>
+      <div class="flex-item">3</div>
+    </div>
+  </div>
+
+
+
+  <span class="subtitle"><span class="h1-span">center</span></span>
+
+<p>Center places all items at the center of the main axis.</p>
+
+<pre>
+<code>
+.flex-container {
+  display: flex;
+  justify-content: center;
+}
+</code>
+</pre>
+  <div class="diagram-box">
+    <div style="justify-content:center;" class="flex-diagrams">
+      <div class="flex-item">1</div>
+      <div class="flex-item">2</div>
+      <div class="flex-item">3</div>
+    </div>
+  </div>
+
+
+  <span class="subtitle"><span class="h1-span">space-between</span></span>
+
+<p>Space-between takes all the extra space of the flex container and evenly distributes them to space the items as far as possible from each other while filling the full width of the container (or height if the main axis is vertical).</p>
+
+<pre>
+<code>
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+}
+</code>
+</pre>
+  <div class="diagram-box">
+    <div style="justify-content:space-between;" class="flex-diagrams">
+      <div class="flex-item">1</div>
+      <div class="flex-item">2</div>
+      <div class="flex-item">3</div>
+    </div>
+  </div>
+
+
+
+  <span class="subtitle"><span class="h1-span">space-around</span></span>
+
+<p>This is very similar to <span class="text-span">space-between</span> space-between, but it also adds space on both the left and right edges of the flex container. This means that all the children or flex items will have spaces on both sides.</p>
+
+<pre>
+<code>
+.flex-container {
+  display: flex;
+  justify-content: space-around;
+}
+</code>
+</pre>
+  <div class="diagram-box">
+    <div style="justify-content:space-around;" class="flex-diagrams">
+      <div class="flex-item">1</div>
+      <div class="flex-item">2</div>
+      <div class="flex-item">3</div>
+    </div>
+  </div>
+
+
+
+  <span class="subtitle"><span class="h1-span">space-evenly</span></span>
+
+<p>This is similar to space-around, but the spaces are of the same widths as you may see below.</p>
+
+<pre>
+<code>
+.flex-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+</code>
+</pre>
+  <div class="diagram-box">
+    <div style="justify-content:space-evenly;" class="flex-diagrams">
+      <div class="flex-item">1</div>
+      <div class="flex-item">2</div>
+      <div class="flex-item">3</div>
+    </div>
+  </div>
+
+
+
+
+      </div>
+    </div>
+      <footer>
+        <span>&#xA9; 2022 DB Digital. All rights reserved.</span>
+
+        <a href="#top">
+          <span><i class="fa-solid fa-angles-up"></i> back to top</span>
+        </a>
+
+      </footer>
+
+  </div>
+    <script src="./js/css.js"></script>
+  </body>
+</html>

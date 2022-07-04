@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="icon" type="image/png" href="./favicon/favicon.ico" sizes="32x32">
+    <title>DB Digital | Grid Layout</title>
+
+  </head>
+  <body>
+
+    <div class="main" id="top">
+
+      <div class="burger-menu">
+      <nav class="navbar">
+        <div class="logo-nav">
+          <a href="index.html">
+            <img src="./img/db_light.webp" alt="">
+          </a>
+
+        </div>
+          <h3 class="nav-title">DB Digital Lessons</h3>
+          <a class="nav-title" href="index.html">
+            <h3>Lesson Index</h3>
+          </a>
+          
+          <div class="burg">
+            <a href="javascript:void(0);" onclick="myFunction2()">
+              <i class="fa-solid fa-bars"></i></a>
+          </div>
+      </nav>
+      <div class="sidebar">
+        <h3>CSS Lessons</h3>
+        <ul>
+          <li><a href="./lesson_flexbox.html">Flex</a></li>
+          <li><a href="./lesson_grid.html">Grid</a></li>
+          <li><a href="./lesson_position.html">Positioning</a></li>
+        </ul>
+        <h4>JavaScript Lessons</h4>
+        <ul>
+          <li><a href="./javascript.html">DOM Traversal</a></li>
+          <li><a href="./js_classlist.html">The classList</a></li>
+        </ul>
+        <a href="./index.html">
+
+          <span><i class="fa-solid fa-circle-chevron-left"></i> back to Home</span>
+        </a>
+          
+      </div>
+      </div>
+      <div class="content">
+        <div class="title">
+          <h1>The CSS Grid</h1>
+          <span class="date" id='date-time'></span>
+
+          <button class="btn-category">CSS</button>
+        </div>
+        <div class="social">
+
+          <span class="fa-stack">
+            <i class="fa fa-circle fa-stack-2x fb-bg"></i>
+            <i class="fa-brands fa-facebook-f fa-stack-1x"></i>
+          </span>
+          <span class="fa-stack">
+            <i class="fa fa-circle fa-stack-2x twit-bg"></i>
+            <i class="fa-brands fa-twitter fa-stack-1x"></i>
+          </span>
+          <span class="fa-stack">
+            <i class="fa fa-circle fa-stack-2x instagram-bg"></i>
+            <i class="fa-brands fa-instagram fa-stack-1x"></i>
+          </span>
+          <span class="fa-stack">
+            <i class="fa fa-circle fa-stack-2x mail-bg"></i>
+            <i class="fa-solid fa-envelope fa-stack-1x"></i>
+          </span>
+
+        </div>
+        <div class="text">
+          <p>
+            The CSS Grid is a powerful tool that CSS gives us to easily align items and create two-dimensional layouts. Compared to Flexbox which can deal with either row or column (but not both at the same time), Grid can work on the row and the column at the same time.
+          </p>
+
+          <span class="subtitle">What Is CSS Grid?</span>
+          <p>
+            The Grid is a CSS model that provides a better way to create horizontal layouts and grids (like the grid layout in the homepage of YouTube). Grid is a two-dimensional layout method for arranging items in rows AND columns at the same time.  In order to implement Grid, if we have an element (like a div) with two div children, we need to do two steps: 1) set the <span class="text-span">display</span> property to <span class="text-span">grid</span>, and 2) set the number of columns of the grid. To do the second step, we have several options but in this example we can set the <span class="text-span"> grid-template-columns</span> property to say <span class="text-span">100px 100px</span>. 
+          </p>
+          <p class="note">(note: the widths are reduced to 80% on smaller screens)</p>
+        </div>
+<pre>
+<code>
+&#60;div class="container"&#62;
+  &#60;div class="item-1"&#62;1&#60;/div&#62;
+  &#60;div class="item-2"&#62;2&#60;/div&#62;
+&#60;/div&#62;
+</code>
+</pre>
+
+<pre>
+<code>
+.container {
+  display: grid;
+  grid-template-columns: 100px 100px;
+}
+</code>
+</pre>
+       
+
+        <div class="diagram-box">
+          <div class="grid-diagrams">
+            <div class="grid-item">1</div>
+            <div class="grid-item">2</div>
+          </div>
+        </div>
+        <div class="text">
+          <p>
+            Now, even without setting the grid-template-columns, setting the display to grid alone will allow you to manipulate the element with other Grid properties. Take note that the numbers 1 and 2 inside the divs are in the center. This is because I have set the boxes themselves as grid containers as well. And then the <span class="text-span">place-items</span> was also added in the CSS and given the value of <span class="text-span">center</span>.
+          </p>
+<!-- keep the pre codes without spaces -->
+<pre>
+<code>
+.grid-items {
+display: grid;
+place-items: center;
+}
+</code>
+</pre>
+
+          <p>Now, notice that the boxes have lined up on the left horizontally and took as much as the values of the grid-template-columns. Recall that divs are block items and takes the entire width. But when they are set into the Grid, they only take up as much columns instead.</p>
+
+          <p>Now, let's see what happens if we added a paragraph inside the box 2.</p>
+
+<pre>
+<code>
+&#60;div class="container"&#62;
+  &#60;div class="item-1"&#62;1&#60;/div&#62;
+  &#60;div class="item-2"&#62;2&#60;p&#62;word and more words&#60;/p&#62;&#60;/div&#62;
+&#60;/div&#62;
+</code>
+</pre>
+            
+        <div class="diagram-box">
+          <div class="grid-diagrams">
+            <div class="grid-item">1</div>
+            <div class="grid-item">2<p>word and more words</p></div>
+          </div>
+        </div>
+
+        <p>
+          We can see that the first box adjusted it's height with the height of the second box which adjusted for the paragraph. Let's try to add another column by changing the grid-template-columns property and adding another div in the html.
+        </p>
+<pre>
+<code>
+.container {
+display: grid;
+grid-template-columns: 100px 100px 200px;
+}
+</code>
+</pre>
+
+        <div class="diagram-box">
+          <div class="grid-diagrams-2">
+            <div class="grid-item">1</div>
+            <div class="grid-item">2<p>word and more words</p></div>
+            <div class="grid-item">3</div>
+          </div>
+        </div>
+
+        <p>We can see that the third div is 200 pixels as in the grid-template-columns. Now let's see what happens if we added a fourth div without changing the css (the grid-template-columns).</p>
+
+<pre>
+<code>
+&#60;div class="container"&#62;
+  &#60;div class="item-1"&#62;1&#60;/div&#62;
+  &#60;div class="item-2"&#62;2&#60;p&#62;word and more words&#60;/p&#62;&#60;/div&#62;
+  &#60;div class="item-3"&#62;3&#60;/div&#62;
+  &#60;div class="item-4"&#62;4&#60;/div&#62;
+&#60;/div&#62;
+</code>
+</pre>
+        
+        <div class="diagram-box">
+          <div class="grid-diagrams-2">
+            <div class="grid-item">1</div>
+            <div class="grid-item">2<p>word and more words</p></div>
+            <div class="grid-item">3</div>
+            <div class="grid-item">4</div>
+          </div>
+        </div>
+
+        <p>The result is that the fourth div "wraps" to the second row. If there are more columns in the html than what is set in the grid-template-columns, it will start to wrap and create new rows.</p>
+
+        <span class="subtitle">The Free Space (fr)</span>
+        <p>The Free Space or fr is a special value in grid that takes up the remaining amount of space on the grid. Looking at our very first example grid, let's change the grid-template-columns property to see the resulting grid.</p>
+
+        <div class="diagram-box">
+          <div class="grid-diagrams">
+            <div class="grid-item">1</div>
+            <div class="grid-item">2</div>
+          </div>
+        </div>
+
+<pre>
+<code>
+.container {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+}
+</code>
+</pre>
+
+
+<div class="diagram-box">
+  <div class="grid-diagrams-3">
+    <div class="grid-item">1</div>
+    <div class="grid-item">2</div>
+  </div>
+</div>
+
+<p>You can see that the first column is 100 px and the second div was changed in the grid-template-columns to 1fr and took up the remaining amount of space set by the grid parent. If we set the width of the parent to the entire width of the page, look what happens:</p>
+
+      
+      <div class="diagram-box">
+        <div class="grid-diagrams-4">
+          <div class="grid-item">1</div>
+          <div class="grid-item">2</div>
+        </div>
+      </div>
+      <p>As you can see, the fr will take all the remaining space given by the parent div. Let's try to add one more div to see some properties of the fr and also add a column in the grid-template-columns.</p>
+
+<pre>
+<code>
+.container {
+  display: grid;
+  grid-template-columns: 100px 1fr 1fr;
+}
+</code>
+</pre>
+
+      <div class="diagram-box">
+        <div class="grid-diagrams-5">
+          <div class="grid-item">1</div>
+          <div class="grid-item">2</div>
+          <div class="grid-item">3</div>
+        </div>
+      </div>
+
+      <p>The second and the third div equally divided the remaining space. If we change the third column to 2fr:</p>
+
+<pre>
+<code>
+.container {
+  display: grid;
+  grid-template-columns: 100px 1fr <span class="colored-text-2">2fr</span>;
+}
+</code>
+</pre>
+
+      <div class="diagram-box">
+        <div class="grid-diagrams-6">
+          <div class="grid-item">1</div>
+          <div class="grid-item">2</div>
+          <div class="grid-item">3</div>
+        </div>
+      </div>
+
+      <p>The 2st column took one-third of the space and the 3th column took up two-thirds of the space. So the fr is like a ratio.</p>
+      <p>These are only some of the properties of the Grid that you can use for you web lay out in a row. In the next lesson, we will explore more of the column and row layout for the Grid.</p>
+
+
+    </div>
+      <footer>
+        <span>&#xA9; 2022 DB Digital. All rights reserved.</span>
+
+        <a href="#top">
+          <span><i class="fa-solid fa-angles-up"></i> back to top</span>
+        </a>
+
+      </footer>      
+
+    </div>
+<script src="./js/css.js"></script>
+
+  </body>
+</html>

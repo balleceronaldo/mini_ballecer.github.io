@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DB Digital | Learn CSS</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="icon" type="image/png" href="./favicon/favicon.ico" sizes="32x32">
+  </head>
+  <body>
+
+    <!-- navbar section -->
+    <div class="navbar">
+      <nav id="navBar">
+        <div class="nav-logo">
+          <div>
+            <img class="logo1" src="./img/db_dark.webp" alt="">
+
+          </div>
+        <div id="burger">
+          <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="iconbtn fa-solid fa-bars"></i>
+          </a>
+        </div>
+      </div>
+      
+      <div id="navLinks">
+        <ul>
+
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./about.html">About Us</a></li>
+
+          <li class>
+            <div class="dropdown" data-dropdown>
+              <button class="link" data-dropdown-button>Lessons <i data-dropdown-button class="fa-solid fa-chevron-down"></i></button>
+              <div class="dropdown-menu information-grid">
+                <div>
+                  <div class="dropdown-heading">Free Lessons</div>
+                  <div class="dropdown-links">
+                    <a href="./js_index.html" class="link">Javascript</a>
+                    <a href="./css_index.html" class="link">CSS</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </li>
+        </ul>
+        <a href="./newsletter_01.pdf" download="newsletter_v1">
+        <button class="btn-nav">
+            Newsletter
+          </button>
+        </a>
+      </div>
+    </nav>
+  </div>
+  <!-- end of navbar section, beginning of hero section grid -->
+<div class="hero">
+  <div class="container grid">
+    <div class="showcase-text">
+      <h1>Learn CSS</h1>
+      <p>Welcome to <span style="color: #83c1e8;">Decode</span> Basics Digital.</p>
+      <p>Learn modern CSS features and advanced CSS concepts in less than a day with this highly focused project-based CSS course</p>
+
+    </div>
+    <div class="showcase-form card">
+      <h2>Join a Class</h2>
+      <form>
+        <div class="form-control">
+          <input type="text" name="name" placeholder="Name" required>
+        </div>
+        <div class="form-control">
+          <select name="course" id="course">
+            <option value="" disabled selected hidden>Select a Course</option>
+            <option class="options" value="javascript">Intro to Javascript</option>
+            <option class="options" value="css">CSS Fundamentals</option>
+          </select>
+        </div>
+        <div class="form-control">
+          <input type="email" name="email" placeholder="Email" required>
+        </div>
+        <input type="submit" value="Send" class="btn">
+      </form>
+    </div>
+  </div>
+</div>
+<!-- end of hero grid, beginning of icon section -->
+<section class="text">
+  <h2>CSS Lesson Index</h2>
+  <a href="./lesson_flexbox.html">
+    <p>The CSS Flexbox</p>
+  </a>
+  <a href="./lesson_grid.html">
+    <p>The CSS Grid</p>
+  </a>
+  <a href="">
+    <p>The CSS Position</p>
+  </a>
+</section>
+
+<!-- course links -->
+<div class="latest-courses">
+  <h2> <span class="js-font">Latest</span> Courses</h2>
+  <div class="la-cards">
+
+    <div class="latest-card css-font">
+      <a href="./css_index.html">
+      <i class="fa-brands fa-css3-alt fa-2x"></i>
+      <span>Beginner CSS</span>
+      </a>
+    </div>
+    <div class="latest-card js-font">
+      <a href="./js_index.html">
+      <i class="fa-brands fa-js fa-2x"></i>
+      <span>Beginner JavaScript</span>
+      </a>
+    </div>
+    <div class="latest-card html-font">
+      <a href="#">
+      <i class="fa-brands fa-html5 fa-2x"></i>
+    <span>HTML<br>(coming soon)</span>
+    </a>
+  </div>
+</div>
+</div>
+<footer>
+  <img src="./img/db_dark.webp" alt="">
+  <div class="footer-text">
+    <h3>Follow Us</h3>
+    <div class="social-icons">
+      <i class="fa-brands fa-facebook fa-2x"></i>
+      <i class="fa-brands fa-twitter fa-2x"></i>
+      <i class="fa-brands fa-youtube fa-2x"></i>
+      <i class="fa-brands fa-github fa-2x"></i>
+    </div>
+  </div>
+  <p>&#xA9; 2022 DB Digital. All rights reserved.</p>
+</footer>
+
+  <script src="./js/main.js"></script>
+  </body>
+</html>

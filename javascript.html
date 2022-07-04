@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="icon" type="image/png" href="./favicon/favicon.ico" sizes="32x32">
+    <title>DB Digital | JavaScript Lesson - DOM Traversal</title>
+<script src="./js/lesson.js" defer></script>
+
+  </head>
+  <body>
+
+    <div class="main" id="top">
+
+      <div class="burger-menu">
+      <nav class="navbar">
+        <div class="logo-nav">
+          <a href="index.html">
+            <img src="./img/db_light.webp" alt="">
+          </a>
+
+        </div>
+          <h3 class="nav-title">DB Digital Lessons</h3>
+          <a class="nav-title" href="index.html">
+            <h3>Lesson Index</h3>
+          </a>
+          
+          <div class="burg">
+            <a href="javascript:void(0);" onclick="myFunction2()">
+              <i class="fa-solid fa-bars"></i></a>
+          </div>
+      </nav>
+      <div class="sidebar">
+        <h3>CSS Lessons</h3>
+        <ul>
+          <li><a href="./lesson_flexbox.html">Flex</a></li>
+          <li><a href="./lesson_grid.html">Grid</a></li>
+          <li><a href="./lesson_position.html">Positioning</a></li>
+        </ul>
+        <h4>JavaScript Lessons</h4>
+        <ul>
+          <li><a href="./javascript.html">DOM Traversal</a></li>
+          <li><a href="./js_classlist.html">Using classList</a></li>
+        </ul>
+        <a href="./index.html">
+
+          <span><i class="fa-solid fa-circle-chevron-left"></i> back to Home</span>
+        </a>
+          
+      </div>
+      </div>
+      <div class="content">
+        <div class="title">
+          <h1>JavaScript DOM Traversal</h1>
+          <span class="date" id='date-time'></span>
+
+          <button class="btn-category">JS</button>
+        </div>
+        <div class="social">
+
+          <span class="fa-stack">
+            <i class="fa fa-circle fa-stack-2x fb-bg"></i>
+            <i class="fa-brands fa-facebook-f fa-stack-1x"></i>
+          </span>
+          <span class="fa-stack">
+            <i class="fa fa-circle fa-stack-2x twit-bg"></i>
+            <i class="fa-brands fa-twitter fa-stack-1x"></i>
+          </span>
+          <span class="fa-stack">
+            <i class="fa fa-circle fa-stack-2x instagram-bg"></i>
+            <i class="fa-brands fa-instagram fa-stack-1x"></i>
+          </span>
+          <span class="fa-stack">
+            <i class="fa fa-circle fa-stack-2x mail-bg"></i>
+            <i class="fa-solid fa-envelope fa-stack-1x"></i>
+          </span>
+
+        </div>
+        <div class="text">
+          <p>
+            Being able to select and traverse the DOM (Document Object Model of the HTML) to manipulate it in JavaScript is one of the most important skill for a web developer. There are nine (9) techniques in order to master traversing or navigating the DOM. We will explore the first four of them.
+          </p>
+
+          <span class="subtitle">Basic HTML and CSS</span>
+          <p>
+            Below is the basic html and css code for our example. All divs are given the display property of flex. We have one <b>grandparent</b> element colored <span style="color: lightblue;">lightblue</span> and which encloses all the elements. We have two <span style="color: lightpink;">lightpink</span> <b>parent</b> elements with two <span style="color: lightgreen;">lightgreen</span> <b>children</b> inside each of them.
+          </p>
+        </div>
+<pre>
+<code>
+&#60;div class="grandparent"&#62;
+  &#60;div class="parent"&#62;
+    &#60;div class="child"&#62;&#60;/div&#62;
+    &#60;div class="child"&#62;&#60;/div&#62;
+  &#60;/div&#62;
+  &#60;div class="parent"&#62;
+    &#60;div class="child"&#62;&#60;/div&#62;
+    &#60;div class="child"&#62;&#60;/div&#62;
+  &#60;/div&#62;
+&#60;/div&#62;
+</code>
+</pre>
+
+<pre>
+<code>
+div {
+  display: flex;
+  margin: .5rem;
+  padding: 1rem;
+  border: 3px solid black;
+  min-height: 1rem;
+  flex-grow: 1;
+}
+
+.grandparent {
+  background-color: lightblue;
+  flex-direction: column;
+  margin-top: 30px;
+}
+
+.parent {
+  background-color: lightpink;
+}
+
+.child {
+  background-color: orangered;
+}
+</code>
+</pre>
+
+
+        <div class="grandparent for-dom">
+          <div class="parent1 for-dom">
+            <div class="child for-dom"></div>
+            <div class="child for-dom"></div>
+          </div>
+          <div class="parent1 for-dom">
+            <div class="child for-dom"></div>
+            <div class="child for-dom"></div>
+          </div>
+        </div>
+        <div class="text">
+          <span class="subtitle">Selecting by ID</span>
+          <p>
+            The most simple way to traverse the DOM is by selecting the element from the document by using the ID selector. First, we must add and id to an element. Let's try to add and id to the grandparent. 
+          </p>
+<!-- limit the pre codes spaces -->
+<pre>
+<code>
+&#60;div class="grandparent" id="granpa-id"&#62;
+  &#60;div class="parent"&#62;
+    &#60;div class="child"&#62;&#60;/div&#62;
+    &#60;div class="child"&#62;&#60;/div&#62;
+  &#60;/div&#62;
+  &#60;div class="parent"&#62;
+    &#60;div class="child"&#62;&#60;/div&#62;
+    &#60;div class="child"&#62;&#60;/div&#62;
+  &#60;/div&#62;
+&#60;/div&#62;
+</code>
+</pre>
+
+          <p>Now, let's edit the blank script .js file and add the following code and save the file to see the result:</p>
+
+<pre>
+<code>
+const grandparent = document.getElementById("grandpa-id");
+
+grandparent.style.backgroundColor = "#333";
+</code>
+</pre>
+
+<div class="grandparent for-dom" id="grandpa-id">
+  <div class="parent1 for-dom">
+    <div class="child for-dom"></div>
+    <div class="child for-dom"></div>
+  </div>
+  <div class="parent1 for-dom">
+    <div class="child for-dom"></div>
+    <div class="child for-dom"></div>
+  </div>
+</div>
+
+
+        <p>
+          We can see that the lightblue color of the grandparent has been replaced by the darkgray color because we selected the element by id using the getElementById method and then change the background-color property using the <span class="text-span"> element.style.property = new style</span> format.
+        </p>
+
+
+        <p>We can also use element selection by class name using <span class="text-span">getElementsByClassName</span>. In our example, let's select the parents using this method.</p>
+
+<pre>
+<code>
+const parents = Array.from
+(document.getElementsByClassName("parent"));
+
+parents.forEach(changeColor);
+
+function changeColor(element) {
+  element.style.backgroundColor = "#333"
+}
+</code>
+</pre>
+  
+<div class="grandparent for-dom" id="grandpa-id">
+  <div class="parent for-dom">
+    <div class="child for-dom"></div>
+    <div class="child for-dom"></div>
+  </div>
+  <div class="parent for-dom">
+    <div class="child for-dom"></div>
+    <div class="child for-dom"></div>
+  </div>
+</div>
+
+
+
+        <p>Take note that we have to add <span class="text-span">Array.from()</span> because <span class="text-span">document.getElementsByClassName</span> will not return an array but an HTML Collection which needs to be converted to an array. We also converted the <span class="text-span">element.style.backgroundColor = "#333"</span>  into a function we named as changeColor. This found 2 elements with the class of parents and changed them to the darkgray color (#333).</p>
+
+
+
+        <span class="subtitle">The <span class="text-span">querySelector</span> and <span class="text-span">querySelectorAll</span></span>
+        <p>This is probably the most popular selector and can be used with almost all types of DOM navigation. The querySelector is used to select single elements while querySelectorAll is for multiple selection. Let's say we want to select the #grandpa-id again.</p>
+
+<pre>
+<code>
+const grandparent = 
+document.querySelector("#grandpa-id");
+
+changeColor(grandparent)
+
+function changeColor(element) {
+  element.style.backgroundColor = "#333"
+};
+</code>
+</pre>
+
+<div class="grandparent for-dom" id="grandpa-id2">
+  <div class="parent1 for-dom">
+    <div class="child for-dom"></div>
+    <div class="child for-dom"></div>
+  </div>
+  <div class="parent1 for-dom">
+    <div class="child for-dom"></div>
+    <div class="child for-dom"></div>
+  </div>
+</div>
+
+<p>The querySelector is used like a normal CSS selector. We can select by tag names, id (by using the # sign), class (by using a period) and even pseudo classes (like button:hover). Let's try to select the grandparent class again.</p>
+
+
+<pre>
+<code>
+const grandparent = 
+document.querySelector(".grandparent");
+
+changeColor(grandparent)
+
+function changeColor(element) {
+  element.style.backgroundColor = "#333"
+};
+</code>
+</pre>
+
+<div class="grandparent1 for-dom" id="grandpa-id4">
+  <div class="parent1 for-dom">
+    <div class="child for-dom"></div>
+    <div class="child for-dom"></div>
+  </div>
+  <div class="parent1 for-dom">
+    <div class="child for-dom"></div>
+    <div class="child for-dom"></div>
+  </div>
+</div>
+
+<p>If we use querySelector for the parent class, it will only select the first class it finds and then stop but there will be no error. Let's try to change the first parent (pink) to red.</p>
+
+<pre>
+<code>
+const parent = 
+document.querySelector(".parent");
+
+changeColor(grandparent);
+
+function changeColor(element) {
+  element.style.backgroundColor = "red"
+};
+</code>
+</pre>
+
+<div class="grandparent1 for-dom" id="grandpa-id4">
+  <div class="parent2 for-dom">
+    <div class="child for-dom"></div>
+    <div class="child for-dom"></div>
+  </div>
+  <div class="parent2 for-dom">
+    <div class="child for-dom"></div>
+    <div class="child for-dom"></div>
+  </div>
+</div>
+
+<p>If we want to change the color of all the parents, then we use the querySelectorAll.</p>
+
+
+<pre>
+<code>
+const parent = 
+document.querySelectorAll(".parent");
+
+parents.forEach(changeColor);
+
+function changeColor(element) {
+element.style.backgroundColor = "navy"
+};
+</code>
+</pre>
+  
+  <div class="grandparent for-dom" id="grandpa-id4">
+    <div class="parent3 for-dom">
+      <div class="child for-dom"></div>
+      <div class="child for-dom"></div>
+    </div>
+    <div class="parent3 for-dom">
+      <div class="child for-dom"></div>
+      <div class="child for-dom"></div>
+    </div>
+  </div>
+
+      </div>
+      <footer>
+        <span>&#xA9; 2022 DB Digital. All rights reserved.</span>
+
+        <a href="#top">
+          <span><i class="fa-solid fa-angles-up"></i> back to top</span>
+        </a>
+
+      </footer>
+    </div>
+  </body>
+</html>
